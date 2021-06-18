@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grommet, Box, Text, Button, Layer } from 'grommet';
-import { Alert, Add, FormClose, StatusGood, CircleAlert, CircleInformation } from 'grommet-icons';
+import { Alert, FormClose, StatusGood, CircleAlert, CircleInformation } from 'grommet-icons';
 import PropTypes from 'prop-types';
 
 export default function BannerCard({ type, duration, message, position }) {
