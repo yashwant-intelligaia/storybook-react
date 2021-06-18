@@ -11,9 +11,17 @@ const Template = args => <Loader {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   showTitle: false,
+  width: "xsmall",
+  height: "xsmall",
+  title: "Loading",
+  size: "xsmall"
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  ...Default.args,
   width: "small",
   height: "small",
-  title: "Loading",
   size: "small"
 };
 

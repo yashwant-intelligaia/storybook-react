@@ -17,7 +17,7 @@ export default function Loader({ width, height, title, size, showTitle }) {
         round="xsmall"
         background="white">
         <Spinner size={size} />
-        {showTitle && <Text alignSelf='center' size="small" margin={{ top: 'xsmall', }} >{title}...</Text>}
+        {showTitle && <Text alignSelf='center' size={size} margin={{ top: 'xsmall', }} >{title}...</Text>}
       </Box>
     </React.Fragment>
 
