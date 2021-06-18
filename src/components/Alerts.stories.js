@@ -28,3 +28,10 @@ Warning.args = {
   type: 'warning',
   message: "There was a problem with your network connection."
 };
+
+export const Info = Template.bind({});
+Info.args = {
+  ...Default.args,
+  type: 'info',
+  message: "Please read the comment carefully."
+};

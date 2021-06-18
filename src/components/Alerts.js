@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grommet, Box, Text, Button, Layer } from 'grommet';
-import { Alert, Add, FormClose, StatusGood, CircleAlert } from 'grommet-icons';
+import { Alert, Add, FormClose, StatusGood, CircleAlert, CircleInformation } from 'grommet-icons';
 import PropTypes from 'prop-types';
 
 export default function BannerCard({ type, duration, message }) {
@@ -37,10 +37,11 @@ export default function BannerCard({ type, duration, message }) {
                             pad={{ right: 'xsmall' }}
                         >
                             <Box align="center" direction="row" gap="xsmall">
-                                <Box pad="xsmall" background={"status-" + type} round={{ corner: 'left', size: 'xsmall' }}>
+                                <Box pad="xsmall" background={type==="info"?"neutral-3":("status-" + type)} round={{ corner: 'left', size: 'xsmall' }}>
                                     {type === "ok" && <StatusGood color='white' />}
                                     {type === "error" && <Alert color='white' size="medium" />}
                                     {type === "warning" && <CircleAlert color='white' size="medium" />}
+                                    {type === "info" && <CircleInformation color='white' size="medium" />}
                                 </Box>
                                 <Box pad="xsmall" background="white">
                                     <Text>{message}</Text>
