@@ -1,25 +1,117 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Grommet, Box, Paragraph, Text, Button, Video, List, Layer, Spinner } from 'grommet';
+import { Alert, CircleAlert } from 'grommet-icons';
+import { Add, FormClose, StatusGood } from 'grommet-icons';
 
-export default function Alerts({ task: { id, title, state }, onArchiveTask, onPinTask }) {
-  return (
-    <div> Test
-    </div>
-  );
-}
+function BannerCard(){
+    const locations = [
+        'Boise',
+        'Fort Collins',
+        'Los Gatos',
+        'Palo Alto',
+        'San Francisco',
+    ];
 
-Alerts.propTypes = {
-    /** Composition of the task */
-    task: PropTypes.shape({
-        /** Id of the task */
-        id: PropTypes.string.isRequired,
-        /** Title of the task */
-        title: PropTypes.string.isRequired,
-        /** Current state of the task */
-        state: PropTypes.string.isRequired,
-    }),
-    /** Event to change the task to archived */
-    onArchiveTask: PropTypes.func,
-    /** Event to change the task to pinned */
-    onPinTask: PropTypes.func,
+    const [open, setOpen] = React.useState(false);
+
+    const onOpen = () => {
+        setOpen(true);
+        setTimeout(() => {
+            setOpen(false);
+        }, 30000);
+    };
+
+    const onClose = () => setOpen(false);
+    return (
+        <Grommet>
+            <Box pad="small" round="small" elevation="large" >
+                <Box fill align="center" justify="center">
+                    <Button icon={<Add color="brand" />} label={ <Text> <strong>Add</strong></Text>} onClick={onOpen} plain />
+                </Box>
+                {open && (
+                    <Layer
+                        position="bottom"
+                        modal={false}
+                        margin={{ vertical: 'medium', horizontal: 'small' }}
+                        onEsc={onClose}
+                        responsive={false}
+                        plain
+                    >
+                        {/* <Box
+                            align="center"
+                            direction="row"
+                            gap="small"
+                            justify="between"
+                            round="xsmall"
+                            elevation="medium"
+                            background="white"
+                            pad={{ right: 'xsmall' }}
+                        //pad={{ vertical: 'xsmall', horizontal: 'small' }}
+                        >
+                            <Box align="center" direction="row" gap="xsmall">
+                                <Box pad="xsmall" background="status-ok" round={{ corner: 'left', size: 'xsmall' }}>
+                                    <StatusGood color='white' />
+                                </Box>
+
+                                <Box pad="xsmall" background="white">
+                                    <Text>Your message has been sent successffully.</Text>
+                                </Box>
+                            </Box>
+                            <Button icon={<FormClose />} onClick={onClose} plain />
+                        </Box> */}
+                       <Box
+                            align="center"
+                            direction="row"
+                            gap="small"
+                            justify="between"
+                            round="xsmall"
+                            elevation="medium"
+                            background="white"
+                            pad={{ right: 'xsmall' }}
+                        >
+                            <Box align="center" direction="row" gap="xsmall">
+                                <Box pad="xsmall" background="status-error" round={{ corner: 'left', size: 'xsmall' }}>
+                                    <Alert color='white' size="medium" />
+                                </Box>
+
+                                <Box pad="xsmall" background="white">
+                                    <Text>A problem has been occurred while submitting your data.</Text>
+                                </Box>
+                            </Box>
+                            <Button icon={<FormClose />} onClick={onClose} plain />
+                        </Box> 
+
+                        {/* <Box
+                            align="center"
+                            direction="row"
+                            gap="small"
+                            justify="between"
+                            round="xsmall"
+                            elevation="medium"
+                            background="white"
+                            pad={{ right: 'xsmall' }}
+                        >
+                            <Box align="center" direction="row" gap="xsmall">
+                                <Box pad="xsmall" background="status-warning" round={{ corner: 'left', size: 'xsmall' }}>
+                                    <CircleAlert color='white' size="medium" />
+                                </Box>
+
+                                <Box pad="xsmall" background="white">
+                                    <Text>There was a problem with your network connection.</Text>
+                                </Box>
+                            </Box>
+                            <Button icon={<FormClose />} onClick={onClose} plain />
+                        </Box> */}
+                    </Layer>
+                )}
+
+                
+                
+
+                
+            </Box>
+        </Grommet>
+    );
 };
+
+export default BannerCard;
