@@ -3,7 +3,7 @@ import { Grommet, Box, Text, Button, Layer } from 'grommet';
 import { Alert, Add, FormClose, StatusGood, CircleAlert, CircleInformation } from 'grommet-icons';
 import PropTypes from 'prop-types';
 
-export default function BannerCard({ type, duration, message }) {
+export default function BannerCard({ type, duration, message, position }) {
     const [open, setOpen] = React.useState(false);
     const onOpen = () => {
         setOpen(true);
@@ -13,13 +13,15 @@ export default function BannerCard({ type, duration, message }) {
 
     return (
         <Grommet>
-            <Box pad="small" round="small" elevation="large" >
-                <Box fill align="center" justify="center">
-                    <Button icon={<Add color="brand" />} label={<Text> <strong>Add</strong></Text>} onClick={onOpen} plain />
-                </Box>
+            <Box  direction="row" align="center"  pad="small" round="small" elevation="large" background="white" >
+              {type === "ok" && <Button label="Default" label={ <Text> <strong>Success State</strong></Text>} onClick={onOpen}  margin={{ right: 'xsmall' }}/>}
+              {type === "error" && <Button label="Default" label={ <Text> <strong>Error State</strong></Text>} onClick={onOpen}  margin={{ right: 'xsmall' }}/>}
+              {type === "warning" && <Button label="Default" label={ <Text> <strong>Warning State</strong></Text>} onClick={onOpen}  margin={{ right: 'xsmall' }} />}
+              {type === "info" && <Button label="Default" label={ <Text> <strong>Info State</strong></Text>} onClick={onOpen}  margin={{ right: 'xsmall' }} />}
+                
                 {open && (
                     <Layer
-                        position="bottom"
+                        position={position}
                         modal={false}
                         margin={{ vertical: 'medium', horizontal: 'small' }}
                         onEsc={onClose}
@@ -65,5 +67,6 @@ BannerCard.propTypes = {
 BannerCard.defaultProps = {
     type: 'ok',
     duration: 3000,
-    message: "Your message has been sent successffully"
+    message: "Your message has been sent successffully",
+    position: "bottom"
 }

@@ -12,7 +12,8 @@ export const Default = Template.bind({});
 Default.args = {
   type: 'ok',
   duration: 3000,
-  message: "Your message has been sent successffully."
+  message: "Your message has been sent successffully.",
+  position: "bottom"
 };
 
 export const Error = Template.bind({});
