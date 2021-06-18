@@ -10,26 +10,33 @@ const Template = args => <Loader {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  task: {
-    id: '1',
-    title: 'Test Task',
-    state: 'TASK_INBOX',
-    updatedAt: new Date(2021, 0, 1, 9, 0),
-  },
+  showTitle: false,
+  width: "xsmall",
+  height: "xsmall",
+  title: "Loading",
+  size: "xsmall"
 };
 
-export const Pinned = Template.bind({});
-Pinned.args = {
-  task: {
-    ...Default.args.task,
-    state: 'TASK_PINNED',
-  },
+export const Small = Template.bind({});
+Small.args = {
+  ...Default.args,
+  width: "small",
+  height: "small",
+  size: "small"
 };
 
-export const Archived = Template.bind({});
-Archived.args = {
-  task: {
-    ...Default.args.task,
-    state: 'TASK_ARCHIVED',
-  },
+export const Medium = Template.bind({});
+Medium.args = {
+  ...Default.args,
+  width: "medium",
+  height: "medium",
+  size: "medium"
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  ...Default.args,
+  width: "large",
+  height: "large",
+  size: "large"
 };
