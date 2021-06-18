@@ -1,9 +1,9 @@
 import React from 'react';
-import { Grommet, Box, Paragraph, Text, Button, Video, List, Layer, Spinner } from 'grommet';
+import { Grommet, Box, Paragraph, Button, Video, List } from 'grommet';
 import { MoreVertical } from 'grommet-icons';
-import { Add, FormClose, StatusGood } from 'grommet-icons';
+import PropTypes from 'prop-types';
 
-function BannerCard(){
+export default function BannerCard({ task: { disabled }}){
     const locations = [
         'Boise',
         'Fort Collins',
@@ -11,24 +11,9 @@ function BannerCard(){
         'Palo Alto',
         'San Francisco',
     ];
-
-    const [open, setOpen] = React.useState(false);
-
-    const onOpen = () => {
-        setOpen(true);
-        setTimeout(() => {
-            setOpen(false);
-        }, 30000);
-    };
-
-    const onClose = () => setOpen(false);
     return (
         <Grommet>
             <Box pad="small" round="small" elevation="large" background="white" >
-         
-
-                
-                {/* Header Starts */}
                 <Box
                     direction="row"
                     flex="grow" // Flex
@@ -37,14 +22,12 @@ function BannerCard(){
                     alignSelf="" // Horizontal Align
                     justify="between" // Content Justification
                     alignContent="start"
-                    
-                    
                 >
                     <Box pad="xsmall" >
                         <Paragraph margin="none">Getting Started with Hosts</Paragraph>
                     </Box>
                     <Box pad="xsmall" >
-                        <Button plain icon={<MoreVertical />} onClick={() => { }} />
+                        <Button plain icon={<MoreVertical />} onClick={() => { }} disabled={disabled}/>
                     </Box>
                 </Box>
                 {/* Header Ends */}
@@ -84,7 +67,7 @@ function BannerCard(){
                             <List data={locations} />
                         </Box>
                         <Box align="start" pad="normal" margin="small">
-                            <Button label="Tell Me More" secondary />
+                            <Button label="Tell Me More" secondary disabled={disabled} />
                         </Box>
 
                     </Box>
@@ -95,4 +78,8 @@ function BannerCard(){
     );
 };
 
-export default BannerCard;
+BannerCard.propTypes = {
+    task:{
+        disabled: PropTypes.bool
+    }
+}
