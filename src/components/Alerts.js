@@ -24,10 +24,12 @@ function BannerCard(){
     const onClose = () => setOpen(false);
     return (
         <Grommet>
-            <Box pad="small" round="small" elevation="large" >
-                <Box fill align="center" justify="center">
-                    <Button icon={<Add color="brand" />} label={ <Text> <strong>Add</strong></Text>} onClick={onOpen} plain />
-                </Box>
+            <Box  direction="row" align="center"  pad="small" round="small" elevation="large" background="white" >
+              <Button label="Default" label={ <Text> <strong>Success State</strong></Text>} onClick={onOpen}  margin={{ right: 'xsmall' }}/>
+              <Button label="Default" label={ <Text> <strong>Error State</strong></Text>} onClick={onOpen}  margin={{ right: 'xsmall' }}/>
+              <Button label="Default" label={ <Text> <strong>Warning State</strong></Text>} onClick={onOpen}  margin={{ right: 'xsmall' }} />
+              <Button label="Default" label={ <Text> <strong>Info State</strong></Text>} onClick={onOpen}  margin={{ right: 'xsmall' }} />
+                
                 {open && (
                     <Layer
                         position="bottom"
