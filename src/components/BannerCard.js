@@ -44,7 +44,7 @@ function BannerCard(){
                         <Paragraph margin="none">Getting Started with Hosts</Paragraph>
                     </Box>
                     <Box pad="xsmall" >
-                        <Button plain icon={<MoreVertical />} onClick={() => { }} />
+                        <Button disabled plain icon={<MoreVertical />} onClick={() => { }} />
                     </Box>
                 </Box>
                 {/* Header Ends */}
@@ -84,7 +84,7 @@ function BannerCard(){
                             <List data={locations} />
                         </Box>
                         <Box align="start" pad="normal" margin="small">
-                            <Button label="Tell Me More" secondary />
+                            <Button label="Tell Me More" secondary disabled />
                         </Box>
 
                     </Box>
