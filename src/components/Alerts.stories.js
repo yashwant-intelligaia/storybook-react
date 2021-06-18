@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Alerts from './Alerts';
 
 export default {
@@ -11,26 +10,21 @@ const Template = args => <Alerts {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  task: {
-    id: '1',
-    title: 'Test Task',
-    state: 'TASK_INBOX',
-    updatedAt: new Date(2021, 0, 1, 9, 0),
-  },
+  type: 'ok',
+  duration: 3000,
+  message: "Your message has been sent successffully."
 };
 
-export const Pinned = Template.bind({});
-Pinned.args = {
-  task: {
-    ...Default.args.task,
-    state: 'TASK_PINNED',
-  },
+export const Error = Template.bind({});
+Error.args = {
+  ...Default.args,
+  type: 'error',
+  message: "A problem has been occurred while submitting your data."
 };
 
-export const Archived = Template.bind({});
-Archived.args = {
-  task: {
-    ...Default.args.task,
-    state: 'TASK_ARCHIVED',
-  },
+export const Warning = Template.bind({});
+Warning.args = {
+  ...Default.args,
+  type: 'warning',
+  message: "There was a problem with your network connection."
 };
